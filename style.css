@@ -1,0 +1,117 @@
+:root{--bg:#fff1ee;--ink:#c93b60;--pa:#fff0f3;--pb:#ffbfd0;--card:#fff8f2;--cardInk:#c93b60;--on:#c93b60;--label:#fff7ef;--btn:#fff;--btnInk:#c93b60}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;background:#000;font-family:'Playfair Display',Georgia,serif}
+.scene{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;animation:fade .7s}
+.scene.on{display:flex}
+@keyframes fade{from{opacity:0}}
+.abs{position:absolute;pointer-events:none}
+#wall{position:fixed;inset:0;z-index:50;opacity:0;pointer-events:none;transition:opacity .6s}
+#wall.on{opacity:1;pointer-events:all}
+#wall svg{width:100%;height:100%;display:block}
+
+/* loading */
+#s0{background:radial-gradient(circle,#fff 0,var(--bg) 40%,var(--pb) 140%)}
+.ring{width:84px;height:84px;animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tiny{margin-top:26px;font:12px sans-serif;letter-spacing:3px;color:var(--ink);opacity:1;font-weight:600}
+
+/* lock */
+#s1{background:var(--bg);overflow-x:hidden;overflow-y:auto;justify-content:flex-start}
+#lockDecor{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.blot{position:absolute;border-radius:50%;filter:blur(38px);opacity:.55;background:var(--pb)}
+.lock{position:relative;z-index:3;text-align:center;margin:auto;padding:16px 0}
+.lock svg{display:block;margin:0 auto}
+.names{font:600 15px/1.25 'Dancing Script',cursive;color:var(--ink);margin:8px 0 6px}
+.names small{display:block;font-size:11px;opacity:.7}
+.dots{display:flex;gap:7px;justify-content:center;margin-bottom:12px}
+.dots b{width:8px;height:8px;border-radius:50%;background:var(--ink);opacity:.3;transition:.2s}.dots b.f{opacity:1;transform:scale(1.2)}
+.pad{display:grid;grid-template-columns:repeat(3,44px);gap:8px;justify-content:center}
+.pad button{height:28px;border:1px solid #fff9;border-radius:9px;background:linear-gradient(#fff,var(--pb));color:var(--btnInk);font:13px 'Playfair Display',serif;cursor:pointer;box-shadow:0 2px 3px #0002}
+.pad button:active{transform:translateY(1px)}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* envelope */
+#s2{background:radial-gradient(circle,#fff 0,var(--bg) 70%)}
+.env{width:130px;height:90px;background:#d98a95;border-radius:5px;position:relative;cursor:pointer;box-shadow:0 10px 22px #0003;transition:.3s;animation:bob 2.5s ease-in-out infinite}
+.env:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 50%,#c5707c 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 50%,#c5707c 50%) right/50% 100% no-repeat}
+.env:after{content:"";position:absolute;left:0;right:0;top:0;height:54px;background:#e9a3ac;clip-path:polygon(0 0,100% 0,50% 100%)}
+.env:hover{transform:scale(1.08) rotate(-2deg)}
+@keyframes bob{50%{margin-top:-8px}}
+.wax{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c42d45,#7a1020);box-shadow:0 3px 5px #0006;z-index:2}
+.wax:after{content:"";position:absolute;inset:22%;border:2px solid #f0a8b0;border-radius:50%;opacity:.7}
+
+/* paper scenes */
+.paper{background:radial-gradient(circle at 15% 15%,var(--pa) 0,transparent 45%),radial-gradient(circle at 85% 80%,var(--pb) 0,transparent 50%),repeating-linear-gradient(115deg,#0000 0 38px,#ffffff10 38px 40px),linear-gradient(160deg,var(--pa),var(--pb))}
+#s3,#s4{overflow:auto;justify-content:flex-start;padding:22px 14px 70px}
+.label{margin:16px 0 6px;padding:10px 32px 16px;background:var(--label);transform:rotate(-5deg);clip-path:polygon(2% 8%,98% 0,100% 90%,4% 100%);font:clamp(34px,9vw,60px) 'Kaushan Script',cursive;color:var(--on);filter:drop-shadow(0 4px 6px #0004)}
+.vid,.song{border-radius:14px;box-shadow:0 8px 20px #0005;overflow:hidden;background:var(--card);color:var(--cardInk)}
+.vid{width:min(300px,88vw);font:12px sans-serif;margin:16px 0 0}
+.vid .scr{height:110px;background:linear-gradient(135deg,var(--pb),var(--on));display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff}
+.vid .bar{padding:8px 10px;display:flex;justify-content:space-between}
+.song{width:min(300px,88vw);font:12px sans-serif;padding:10px;display:flex;gap:10px;align-items:center;margin:14px 0 0}
+.song .art{width:42px;height:42px;border-radius:6px;background:linear-gradient(135deg,var(--pb),var(--on))}
+.song .art{flex:none}
+.song .info{flex:1;min-width:0;line-height:1.4}
+.song .info b{display:block;font:700 14px 'Playfair Display',serif;color:var(--cardInk)}
+.song .info small{display:block;font-size:11px;opacity:.9;color:var(--cardInk)}
+.song button{flex:none}
+.song button{width:30px;height:30px;border-radius:50%;border:0;background:var(--on);color:#fff;cursor:pointer}
+.polas{position:relative;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin:30px 0;width:100%;max-width:780px}
+.star{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0}
+.pola{position:relative;z-index:1;width:min(210px,44vw);padding:9px 9px 36px;background:#f8f2e4;box-shadow:0 8px 18px #0007;transform:rotate(var(--r))}
+.pola .box{position:relative;aspect-ratio:1/1.1;background-size:cover;background-position:center}
+.pola canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.note{position:relative;display:flex;align-items:center;gap:14px;margin-top:6px}
+.black{background:var(--card);color:var(--cardInk);font:italic clamp(24px,6vw,34px) 'Dancing Script',cursive;line-height:1.5;padding:30px 36px;clip-path:polygon(0 4%,97% 0,100% 94%,3% 100%);filter:drop-shadow(0 6px 8px #0005)}
+.next{margin-top:26px;border:2px solid var(--on);background:none;color:var(--on);padding:9px 26px;border-radius:30px;font:italic 15px 'Playfair Display',serif;cursor:pointer}
+.next:hover{background:var(--on);color:#fff}
+
+/* letter */
+.letter{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;max-width:660px;margin-top:6vh}
+.letter p{flex:1 1 280px;min-height:150px;font:italic clamp(22px,5.5vw,32px)/1.5 'Playfair Display',serif;color:var(--cardInk);background:var(--card);padding:34px;clip-path:polygon(0 3%,98% 0,100% 96%,2% 100%);filter:drop-shadow(0 8px 10px #0005)}
+.bq{width:180px;animation:sway 3.5s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes sway{50%{transform:rotate(5deg)}}
+.hint{position:fixed;bottom:12px;left:0;right:0;text-align:center;font:11px sans-serif;letter-spacing:2px;color:var(--on);opacity:.9;background:#fff8;padding:4px 0}
+
+/* final */
+#s5{background:var(--pb);overflow:hidden}
+#s5:before{content:"";position:absolute;inset:-30px;background:radial-gradient(circle at 25% 30%,#fff,transparent 45%),radial-gradient(circle at 75% 70%,var(--pb),transparent 55%),var(--pa);filter:blur(16px)}
+.card{position:relative;width:min(270px,80vw);background:#fffaf4;border-radius:18px;padding:10px;box-shadow:0 20px 40px #0005}
+.card h3{font:700 18px 'Playfair Display',serif;margin:10px 4px 0;color:#4a2a2a}
+.card small{display:block;margin:0 4px 8px;font:10px sans-serif;color:#a88}
+
+/* falling + fallen pink leaves */
+#leaves,#ground{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#leaves{z-index:40}#ground{z-index:39}
+.leaf{position:absolute;top:-60px;animation:leafFall linear infinite}
+.rest{position:absolute}
+@keyframes leafFall{0%{transform:translate(0,-60px) rotate(0)}25%{transform:translate(30px,25vh) rotate(90deg)}50%{transform:translate(-20px,55vh) rotate(200deg)}75%{transform:translate(35px,85vh) rotate(290deg)}100%{transform:translate(0,112vh) rotate(380deg)}}
+
+/* ===== dramatic + realistic ===== */
+#fx{position:fixed;inset:0;z-index:45;pointer-events:none;background:radial-gradient(ellipse at center,transparent 48%,rgba(70,5,30,.5) 100%);mix-blend-mode:multiply}
+#fx:after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.16;mix-blend-mode:overlay}
+#heartLock{filter:drop-shadow(0 0 8px var(--ink));animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{filter:drop-shadow(0 0 24px var(--ink))}}
+#heartLock.open{animation:none;filter:drop-shadow(0 0 40px #fff)}
+.shk{transition:transform .6s;transform-box:fill-box;transform-origin:left bottom}
+.open .shk{transform:translateY(-14px) rotate(-28deg)}
+.env{perspective:700px}
+.env:before{z-index:2}.env:after{z-index:3;transform-origin:top;transition:transform .7s}
+.env .wax{z-index:4;transition:opacity .3s}
+.ltr{position:absolute;left:12px;right:12px;top:8px;bottom:8px;background:#fffaf0;border-radius:3px;z-index:1;transition:transform .9s .6s}
+.env.open{animation:none}.env.open:after{transform:rotateX(180deg);z-index:0}.env.open .ltr{transform:translateY(-74px)}.env.open .wax{opacity:0}
+.scene.on .label{animation:slam 1s both}
+@keyframes slam{from{opacity:0;transform:rotate(-5deg) scale(2.8)}60%{transform:rotate(-5deg) scale(.93)}to{opacity:1;transform:rotate(-5deg) scale(1)}}
+.polas{gap:4px}
+.pola{width:min(190px,42vw);margin:-4px;box-shadow:0 14px 26px #000a,0 2px 3px #0006;animation:drop 1s cubic-bezier(.2,1.3,.4,1) both;animation-delay:calc(var(--i)*.18s);transition:transform .3s}
+.pola:hover{transform:rotate(0) scale(1.07);z-index:6}
+.pola:before{content:"";position:absolute;top:-11px;left:50%;width:64px;height:22px;margin-left:-32px;background:rgba(238,214,160,.78);transform:rotate(var(--t,-3deg));box-shadow:0 1px 3px #0004}
+.pola:after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.1;mix-blend-mode:multiply;pointer-events:none}
+.pola .box:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 14px #0006;pointer-events:none}
+@keyframes drop{from{transform:translateY(-110vh) rotate(calc(var(--r) + 70deg));opacity:0}to{transform:rotate(var(--r));opacity:1}}
+.bq{animation:bloom 1.8s ease-out both,sway 3.5s 1.8s ease-in-out infinite}
+@keyframes bloom{from{transform:scale(.1);opacity:0}}
+.letter p{text-shadow:0 0 1px currentColor}
+
+.card video{width:100%;max-height:60vh;border-radius:12px;display:block;background:#000}

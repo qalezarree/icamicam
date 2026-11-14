@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OUR ANNIVERSARY</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Kaushan+Script&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+ <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="16"/></filter>
+</defs></svg>
+<div id="wall"></div>
+
+<section class="scene on" id="s0"><div class="ring" id="ring"></div><div class="tiny">KEJAPPP!</div></section>
+
+<section class="scene" id="s1">
+  <div id="lockDecor"></div>
+  <div class="lock">
+    <svg id="heartLock" width="96" height="120" viewBox="0 0 96 120"></svg>
+    <div class="names" id="names"></div>
+    <div class="dots" id="dots"></div>
+    <div class="pad" id="pad"></div>
+  </div>
+</section>
+
+<section class="scene" id="s2"><div class="env" id="env"><i class="ltr"></i><span class="wax" style="left:50px;top:38px;width:30px;height:30px"></span></div><div class="tiny">TEKANLAA KALAU BERANIII</div></section>
+
+<section class="scene paper" id="s3">
+  <div class="label">Gadis yang kucintahh se-alay-alaynyaa</div>
+  <div class="vid"><div class="scr">&#9658;</div><div class="bar"><span id="vidT"></span><span>0:00 / 9:07</span></div></div>
+  <div class="song"><div class="art"></div><div class="info"><b id="song"></b><small id="artist"></small></div><button id="play">&#9658;</button></div>
+  <audio id="audio" loop></audio>
+  <div class="polas" id="polas"></div>
+  <div class="note"><span class="wax" style="position:relative;width:56px;height:56px"></span><div class="black" id="from"></div></div>
+  <button class="next" id="toLetter">baca mesej babyyy dluuu</button>
+</section>
+
+<section class="scene paper" id="s4">
+  <div class="letter"><p id="msg"></p><div class="bq" id="bq"></div></div>
+  <div class="hint">TEKANN SYAKK MANA-MANAAA</div>
+</section>
+
+<section class="scene" id="s5">
+  <div class="card">
+    <video id="finalVideo" controls playsinline preload="metadata"></video>
+    <h3 id="place"></h3><small id="cap"></small>
+  </div>
+</section>
+
+<div id="fx"></div>
+<script src="script.js"></script>
+</body>
+</html>
