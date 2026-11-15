@@ -8,7 +8,7 @@ const CONFIG = {
   audioUrl: "og.mp3",              // optional mp3 link
   photos: ["11.jpeg","22.jpeg","33.jpeg","44.jpeg","55.jpeg","66.jpeg","77.jpeg"],   // 7 image links or file names
   message: "hi my sayangg i hope you know how lucky and grateful i am to have met you. i never thought we’d get to this point, but it was so unexpected. you make me feel loved, important, appreciated, and cared for. i see and appreciate all your love and effort. ever since you came into my life, everything has gotten better. you always make me smile, especially when i’m feeling sad. you always make me happy. thank you for being here. i love you so much, my love. hihi i love my imut <3",
-  place: "our lovely memory", caption: "Memories, special", videoUrl: "special.mp4"      // your video file or link
+  place: "my lovely memory,with you,farhana", caption: "Memories, special", videoUrl: "special.mp4"      // your video file or link
 };
 /* ========================== */
 const $=id=>document.getElementById(id), R=a=>a[Math.floor(Math.random()*a.length)], rnd=(a,b)=>a+Math.random()*(b-a);
